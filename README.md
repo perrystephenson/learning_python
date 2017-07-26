@@ -2,6 +2,10 @@
 
 It had to happen at some point I guess... time to learn Python. These notes will be written specifically for someone that learned C several years ago, smashed around in MATLAB for a bit, currently knows R well enough to do pretty much anything they want to in R, and is learning Bash and Perl at the same time. If this is you, welcome! If not, sorry for the gaps.
 
+### Getting Help
+
+Getting help about a Python function seems pretty easy, using the `help(<thing>)` syntax (for example `help(len)`). This is like the `?<thing>` syntax in R, although it's worth noting that the R function documentation seems to be way more helpful than the Python function documentation. Google is probably a pretty good bet.
+
 ### Scripts vs Shell
 
 Python is a language. IPython is an interactive shell (which is itself tautologous, as all shells are interactive, surely?). Python is the name of the language, and there are multiple implementations of Python, including CPython (the reference implementation), PyPy (a faster implemenetation), and more. This is different to R, which is both a language AND an implementation, meaning that the R language is defined by the behaviour of the R interpreter. R runs in both script mode and interactive mode, which is again a key difference. So Python is to R as IPython is to R as CPython is to R. Easy!
@@ -44,28 +48,62 @@ R has a nice "copy on modify" behaviour, which means that when you assign a list
 
 ### Grouping
 
-Python does not use braces - it uses indentation to group blocks of code. This is supposed to improve readability, but in practice it can be super messy.
+Python does not use braces - it uses indentation to group blocks of code. This is supposed to improve readability, but in practice it can be super messy. Can use spaces or tabs.
 
 ## Scripting
 
 ### Boilerplate
 
 ```
-#!/usr/bin/env python
+#!/usr/bin/env python. -- this tells bash how to execute the file, if you try to execute it directly
 
 # import modules used here -- sys is a very standard one
 import sys
 
 # Gather our code in a main() function
-def main():
-    print 'Hello there', sys.argv[1]
-    # Command line args are in sys.argv[1], sys.argv[2] ...
-    # sys.argv[0] is the script name itself and can be ignored
+def main():      # Note: no braces! Indentation as grouping!
+  print 'Hello there', sys.argv[1]
+  # Command line args are in sys.argv[1], sys.argv[2] ...
+  # sys.argv[0] is the script name itself and can be ignored
 
 # Standard boilerplate to call the main() function to begin
 # the program.
 if __name__ == '__main__':
     main()
 ```
+
+There is a special `__name__` variable which Python sets to "`__main__`" when the script is run directly. The boilerplate at the end ensures that `main()` is run in this case (direct execution), but not run if the code is imported from another script. Every script is a module! 
+
+### Functions
+
+Functions are defined using the keyword `def`, like so:
+
+```
+# Defines a "repeat" function that takes 2 arguments.
+def repeat(s, exclaim):
+  """
+  Returns the string 's' repeated 3 times.
+  If exclaim is true, add exclamation marks.
+  """
+
+  result = s + s + s # can also use "s * 3" which is faster (Why?)
+  if exclaim:
+    result = result + '!!!'
+  return result
+```
+
+This indenting thing is a bit rough!
+
+A `return` statement appears to be compulsory in Python functions, unlike in R where it is not strictly required. Like in all other scripting languages, functions must be defined before they are used (i.e. earlier in the script). Importing modules is probably a sensible way to manage this.
+
+### Namespaces
+
+If you have a module called `binky.py` and a function in that module called `foo()` then the fully qualified function name is `binky.foo()`. This is sort of like R's `::` notation (e.g. `dplyr::select()`) except that Python modules seem to typically be more light weight than R packages. R has no equivalent way to select functions from individual .R files using `source()`, so I guess that is a bit of an advantage for the Python approach, but limiting modules to a single file must make for some horrendously long modules... Will need to look into this more.
+
+### Imports
+
+If you import a module using `import sys`, then you make the functions from `sys` available in your code using their fully qualified function names, e.g. `sys.argv` and `sys.exit()`. This is different to R, where using the `library()` function makes functions available using their short names, e.g. after calling `library(dplyr)` you can just call `select()`. To get this sort of behaviour in Python, some people use `from sys import argv, exit` which makes specified functions available using their short names. In general though, it makes sense to use fully qualified names unless they're really long, in the same way that it makes sense to use functions in R using the `::` notation.
+
+Python has a "standard library" of imports available, just like R. Some examples include `sys`, `re` and `os`.
 
 
