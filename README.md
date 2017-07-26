@@ -42,6 +42,30 @@ Python lists override the `+` operator; if you want to concatenate two lists, th
 
 R has a nice "copy on modify" behaviour, which means that when you assign a list (or anything else) to a new variable, it doesn't copy it until you make a change, at which point it saves a modified copy of that object. In Python however, the behaviour is different for different data types (booooooo). Lists, for example, are copied by reference, which means that changing an element in a "copied" list also changes the same element in the original list. To get around this you need to do something like `y = list(x)` or `y = x[:]` to explicitly copy all items from the list.
 
+### Grouping
 
+Python does not use braces - it uses indentation to group blocks of code. This is supposed to improve readability, but in practice it can be super messy.
+
+## Scripting
+
+### Boilerplate
+
+```
+#!/usr/bin/env python
+
+# import modules used here -- sys is a very standard one
+import sys
+
+# Gather our code in a main() function
+def main():
+    print 'Hello there', sys.argv[1]
+    # Command line args are in sys.argv[1], sys.argv[2] ...
+    # sys.argv[0] is the script name itself and can be ignored
+
+# Standard boilerplate to call the main() function to begin
+# the program.
+if __name__ == '__main__':
+    main()
+```
 
 
