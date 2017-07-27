@@ -50,6 +50,10 @@ R has a nice "copy on modify" behaviour, which means that when you assign a list
 
 Python does not use braces - it uses indentation to group blocks of code. This is supposed to improve readability, but in practice it can be super messy. Can use spaces or tabs.
 
+### Missing Things and extreme numbers
+
+In R, you have `NA` (missing) and `NULL` (undefined, empty), `NaN` (not a number), and `Inf` (infinity). In Python, you have `None`, and numpy has `numpy.nan` (not a number). There is no equivalent to `Inf`, as it just raises an error. Need to find out more about this.
+
 ## Scripting
 
 ### Boilerplate
@@ -96,6 +100,12 @@ This indenting thing is a bit rough!
 
 A `return` statement appears to be compulsory in Python functions, unlike in R where it is not strictly required. Like in all other scripting languages, functions must be defined before they are used (i.e. earlier in the script). Importing modules is probably a sensible way to manage this.
 
+Function arguments look to be specified and evaluated similarly to R - you name the arguments and you can give them default values in the definition statement. When using the function you can resolve arguments by name or by order (but you cannot mix the two approaches), and there is no partial matching.
+
+### Methods
+
+Python is a proper object-oriented (OO) language, unlike R which is a functional language with three different OO systems built on top of it. The Python model for objects and methods is most similar to R's Reference Classes (RC) framework, which most R users have probably never encountered. In Python, methods belong to objects (you invoke them using `object.method()` notation), and behave according to the type of the object. Some methods can mutate the object they belong to, others do not, and there is no easy way to tell the difference without reading the documentation.
+
 ### Namespaces
 
 If you have a module called `binky.py` and a function in that module called `foo()` then the fully qualified function name is `binky.foo()`. This is sort of like R's `::` notation (e.g. `dplyr::select()`) except that Python modules seem to typically be more light weight than R packages. R has no equivalent way to select functions from individual .R files using `source()`, so I guess that is a bit of an advantage for the Python approach, but limiting modules to a single file must make for some horrendously long modules... Will need to look into this more.
@@ -104,6 +114,14 @@ If you have a module called `binky.py` and a function in that module called `foo
 
 If you import a module using `import sys`, then you make the functions from `sys` available in your code using their fully qualified function names, e.g. `sys.argv` and `sys.exit()`. This is different to R, where using the `library()` function makes functions available using their short names, e.g. after calling `library(dplyr)` you can just call `select()`. To get this sort of behaviour in Python, some people use `from sys import argv, exit` which makes specified functions available using their short names. In general though, it makes sense to use fully qualified names unless they're really long, in the same way that it makes sense to use functions in R using the `::` notation.
 
-Python has a "standard library" of imports available, just like R. Some examples include `sys`, `re` and `os`.
+To save you a bit of typing, you can rename the imported packages using the `import <package> as <shortcut>` syntax, e.g. `import numpy as np`. Going further, you can even do things like `from numpy import array as np_array` to import specific functions and rename them all in one step.
+
+Python has a "standard library" of imports available, just like R. Some examples include `sys`, `re` and `os`. 
+
+You can also import constants from packages - e.g. `math.pi`.
+
+Some important imports include:
+
+[numpy](numpy.md)
 
 
