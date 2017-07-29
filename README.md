@@ -120,8 +120,6 @@ Python has a "standard library" of imports available, just like R. Some examples
 
 You can also import constants from packages - e.g. `math.pi`.
 
-Some important imports include:
-
-[numpy](numpy.md)
+Some important imports include: [numpy](numpy.md), [matplotlib](matplotlib.md)
 
 
