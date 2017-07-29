@@ -1,7 +1,0 @@
-# Matplotlib
-
-Matplotlib is a python graphics library, and you normally import it using the following line of code:
-
-```
-import matplotlib.pyplot as plt
-```
