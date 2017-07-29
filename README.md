@@ -54,6 +54,24 @@ Python does not use braces - it uses indentation to group blocks of code. This i
 
 In R, you have `NA` (missing) and `NULL` (undefined, empty), `NaN` (not a number), and `Inf` (infinity). In Python, you have `None`, and numpy has `numpy.nan` (not a number). There is no equivalent to `Inf`, as it just raises an error. Need to find out more about this.
 
+### Booleans
+
+In R, booleans are defined as `TRUE` and `FALSE`, with the shortcut `T` and `F` also commonly used. In Python, the booleans are defined as `True` and `False`, with no alternative capitalisation options and no shortcuts.
+
+### Dictionaries
+
+Dictionaries don't really exist in R, because the dictionary functionality (named elements) is available in both atomic vectors and lists. It's slowly dawning on me what it means when people say R is better for data - it really does make things easy. But if you want to do a named list (a dictionary) in Python, you can use the following syntax:
+
+```
+world = {"afghanistan":30.55, "albania":2.77, "algeria":39.21}
+```
+
+You can also do nested dictionaries - the keys are somewhat limited (they can be any immutable data type) but the values can be dictionaries if you want.
+
+### DataFrames
+
+This is covered in the [pandas package documentation](pandas.md).
+
 ## Scripting
 
 ### Boilerplate
@@ -120,6 +138,6 @@ Python has a "standard library" of imports available, just like R. Some examples
 
 You can also import constants from packages - e.g. `math.pi`.
 
-Some important imports include: [numpy](numpy.md), [matplotlib](matplotlib.md)
+Some important imports include: [numpy](numpy.md), [matplotlib](matplotlib.md), [pandas](pandas.md)
 
 
