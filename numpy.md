@@ -2,13 +2,15 @@
 
 This is a package which provides some types and functions for maths. The key use of numpy is the numpy.array() function, which provides something similar to the `c()` function (atomic vector) in R. Unlike lists (in both R and Python), the numpy.array function allows vectorised operations, which is apparently a bit novel for Python users but is the expected behaviour for R users.
 
+By convention, numpy is normally imported as np.
+
 ### Numpy arrays
 
 To create a numpy array:
 
 ```
-import numpy
-temp = numpy.array([1,2,3,4])
+import numpy as np
+temp = np.array([1,2,3,4])
 ```
 
 Note the strange bracket nesting - it looks like the array function takes a list as an argument, which means you need to use the square brackets to make a list, then pass this list as the argument to the array function. Not exactly elegant, but I'm sure I can deal with it.
@@ -31,5 +33,5 @@ You can subset 2D (or nD) arrays using chained square brackets (e.g. `np_2d[1][3
 
 ### Numpy functions
 
-The numpy package also includes some maths functions, including `numpy.mean`, `numpy.median`, `numpy.round`, `numpy.corrcoef` (a correlation coefficient matrix) and `numpy.std` (for standard deviation). There are some data generation functions too, including `numpy.random.normal`, `numpy.column_stack`, etc.
+The numpy package also includes some maths functions, including `np.mean`, `np.median`, `np.round`, `np.corrcoef` (a correlation coefficient matrix) and `np.std` (for standard deviation). There are some data generation functions too, including `np.random.normal`, `np.column_stack`, etc.
 
