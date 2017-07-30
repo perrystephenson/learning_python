@@ -58,6 +58,18 @@ In R, you have `NA` (missing) and `NULL` (undefined, empty), `NaN` (not a number
 
 In R, booleans are defined as `TRUE` and `FALSE`, with the shortcut `T` and `F` also commonly used. In Python, the booleans are defined as `True` and `False`, with no alternative capitalisation options and no shortcuts.
 
+Boolean arithmetic is performed using the `and` and `or` keywords, corresponding to the `&` and `|` operators in R. You can also use the `not` operator, which corresponds to `!` in R.
+
+Booleans are a bit harder to work with when you're using numpy arrays. You can't use the keywords above, you have to use the built in numpy functions:
+
+```
+np.logical_and()
+np.locical_or()
+np.locical_not()
+```
+
+How ridiculous. I can't wait to find out how these work with pandas DataFrames.
+
 ### Dictionaries
 
 Dictionaries don't really exist in R, because the dictionary functionality (named elements) is available in both atomic vectors and lists. It's slowly dawning on me what it means when people say R is better for data - it really does make things easy. But if you want to do a named list (a dictionary) in Python, you can use the following syntax:
