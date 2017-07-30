@@ -68,7 +68,7 @@ np.locical_or()
 np.locical_not()
 ```
 
-How ridiculous. I can't wait to find out how these work with pandas DataFrames.
+How ridiculous. At least these seem to work with pandas Series, so I don't have to learn a third thing.
 
 ### Dictionaries
 
@@ -187,4 +187,38 @@ else :
     execute this
 ```
 
+### While loop
 
+The general syntax for a while loop is:
+
+```
+while condition :
+    expression
+```
+
+### For loop
+
+The general syntax for a for loop is:
+
+```
+for var in seq :
+    expression
+```
+
+You can also do inline enumeration if you want to (to get access to the index as well as the value), but it's a bit flimsy and hard to understand because it only exists in the for loop syntax:
+
+```
+for index, var in enumerate(seq):
+    expression
+```
+
+In R you would do this by using `1:length()` or `seq_along()`, and then get the value back by using the index to look it up. The Python way of doing this feels a bit messy.
+
+You can also iterate along multiple columns in nested lists:
+
+```
+for room, area in house :
+    expression
+```
+
+This could actually be a little useful.
