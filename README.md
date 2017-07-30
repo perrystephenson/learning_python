@@ -152,4 +152,39 @@ You can also import constants from packages - e.g. `math.pi`.
 
 Some important imports include: [numpy](numpy.md), [matplotlib](matplotlib.md), [pandas](pandas.md)
 
+## Control Flow
+
+Bottom line up front, Python is weird about groupings. Instead of using braces and making things clear and explicit, Python enforces indentation as a way of grouping code. What this means if you have both spaces and tabs is unclear, but it's certainly going to get confusing. Add to this Python's mixed bag when it comes to putting function arguments in brackets and we've got a real mess.
+
+### If statements
+
+The general syntax for an `if` statement is:
+
+```
+if condition :
+    execute this
+    and this because we're still indented
+execute this regardless because we've got no indent
+```
+
+The general syntax for an `if else` statement is:
+
+```
+if condition :
+    execute this
+else :
+    execute this
+```
+
+The general syntax for an `else if` statement is:
+
+```
+if condition :
+    execute this
+elif condition :
+    execute this
+else :
+    execute this
+```
+
 
