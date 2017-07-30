@@ -222,3 +222,14 @@ for room, area in house :
 ```
 
 This could actually be a little useful.
+
+To iterate through the rows of a pandas DataFrame, you can use the following:
+
+```
+for lab, row in brics.iterrows() :
+    expression
+    print(lab) # The row label
+    print(row) # The pandas Series, i.e. a named list consisting of the row elements
+```
+
+
